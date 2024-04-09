@@ -3,9 +3,10 @@
  * @see https://v0.dev/t/peB1sPyt9aa
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { Button } from "@/components/ui/button";
-import { CardHeader, CardContent, Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui-componets/button";
+import { CardHeader, CardContent, Card } from "@/components/ui-componets/card";
+import { Badge } from "@/components/ui-componets/badge";
+import { useState } from "react";
 
 export default function Dashboard() {
   return (
