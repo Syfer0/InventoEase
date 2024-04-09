@@ -1,11 +1,6 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/Ie7LDfLGjdj
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import Link from "next/link";
-import { CardHeader, CardContent, Card } from "@/components/ui-componets/card";
-import { Avatar } from "@/components/ui-componets/avatar";
+import { CardHeader, CardContent, Card } from "@/components/ui/card";
+import { Avatar } from "@/components/ui/avatar";
 
 export default function Component() {
   return (

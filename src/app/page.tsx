@@ -1,11 +1,6 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/EUUTGc6x9vr
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import Link from "next/link";
-import { Input } from "@/components/ui-componets/input";
-import { Button } from "@/components/ui-componets/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -41,6 +36,18 @@ export default function Home() {
             href="#"
           >
             Contact
+          </Link>
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="signup"
+          >
+            Signup
+          </Link>
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="login"
+          >
+            Login
           </Link>
         </nav>
       </header>
@@ -216,7 +223,7 @@ export default function Home() {
   );
 }
 
-function BoxIcon(props) {
+function BoxIcon(props: any) {
   return (
     <svg
       {...props}
@@ -237,7 +244,7 @@ function BoxIcon(props) {
   );
 }
 
-function CheckCircleIcon(props) {
+function CheckCircleIcon(props: any) {
   return (
     <svg
       {...props}
@@ -257,7 +264,7 @@ function CheckCircleIcon(props) {
   );
 }
 
-function UserIcon(props) {
+function UserIcon(props: any) {
   return (
     <svg
       {...props}

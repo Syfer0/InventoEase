@@ -1,263 +1,137 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/peB1sPyt9aa
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import { Button } from "@/components/ui-componets/button";
-import { CardHeader, CardContent, Card } from "@/components/ui-componets/card";
-import { Badge } from "@/components/ui-componets/badge";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  CardTitle,
+  CardDescription,
+  CardHeader,
+  CardContent,
+  CardFooter,
+  Card,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  TableHead,
+  TableRow,
+  TableHeader,
+  TableCell,
+  TableBody,
+  Table,
+} from "@/components/ui/table";
 
-export default function Dashboard() {
+export default function Component() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div className="p-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
-          <Button size="sm">New Entry</Button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card>
-            <CardHeader>
-              <h2 className="text-lg font-semibold">Cement Type 1</h2>
-              <p className="text-sm font-medium leading-none text-gray-500">
-                In Stock
-              </p>
-            </CardHeader>
-            <CardContent className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <img
-                  alt="Image"
-                  className="rounded-lg"
-                  height="40"
-                  src="/placeholder.svg"
-                  style={{
-                    aspectRatio: "40/40",
-                    objectFit: "cover",
-                  }}
-                  width="40"
-                />
-                <div className="grid grid-cols-1 gap-1">
-                  <p className="text-sm font-medium">Quantity: 500 Bags</p>
-                  <p className="text-sm font-medium">
-                    Last Updated: 2 hours ago
-                  </p>
-                </div>
-              </div>
-              <Button size="sm">View</Button>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <h2 className="text-lg font-semibold">Cement Type 2</h2>
-              <p className="text-sm font-medium leading-none text-gray-500">
-                In Stock
-              </p>
-            </CardHeader>
-            <CardContent className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <img
-                  alt="Image"
-                  className="rounded-lg"
-                  height="40"
-                  src="/placeholder.svg"
-                  style={{
-                    aspectRatio: "40/40",
-                    objectFit: "cover",
-                  }}
-                  width="40"
-                />
-                <div className="grid grid-cols-1 gap-1">
-                  <p className="text-sm font-medium">Quantity: 300 Bags</p>
-                  <p className="text-sm font-medium">
-                    Last Updated: 1 hour ago
-                  </p>
-                </div>
-              </div>
-              <Button size="sm">View</Button>
-            </CardContent>
-          </Card>
-        </div>
+    <div className="min-h-screen bg-gray-100 p-8">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          New Entry
+        </Button>
       </div>
-      <div className="flex flex-col gap-4 p-4">
-        <Card>
+      <div className="grid grid-cols-3 gap-4">
+        <Card className="bg-white shadow rounded-lg p-4">
           <CardHeader>
-            <h2 className="text-lg font-semibold">Recent Orders</h2>
+            <CardTitle>Cement Type 1</CardTitle>
+            <CardDescription>In Stock</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <img
-                      alt="Image"
-                      className="rounded-lg"
-                      height="40"
-                      src="/placeholder.svg"
-                      style={{
-                        aspectRatio: "40/40",
-                        objectFit: "cover",
-                      }}
-                      width="40"
-                    />
-                    <div>
-                      <h3 className="text-sm font-semibold">Customer Name</h3>
-                      <p className="text-xs leading-none text-gray-500">
-                        Order #123
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="flex flex-col items-end space-y-0.5">
-                      <p className="text-xs leading-none">Quantity</p>
-                      <p className="text-xs leading-none">Price</p>
-                    </div>
-                    <div className="flex flex-col items-end space-y-0.5">
-                      <p className="text-xs leading-none">100 Bags</p>
-                      <p className="text-xs leading-none">$500.00</p>
-                    </div>
-                  </div>
-                </div>
-                <Badge>Delivered</Badge>
-              </div>
-              <hr className="border-gray-200 dark:border-gray-800" />
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <img
-                      alt="Image"
-                      className="rounded-lg"
-                      height="40"
-                      src="/placeholder.svg"
-                      style={{
-                        aspectRatio: "40/40",
-                        objectFit: "cover",
-                      }}
-                      width="40"
-                    />
-                    <div>
-                      <h3 className="text-sm font-semibold">Customer Name</h3>
-                      <p className="text-xs leading-none text-gray-500">
-                        Order #124
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="flex flex-col items-end space-y-0.5">
-                      <p className="text-xs leading-none">Quantity</p>
-                      <p className="text-xs leading-none">Price</p>
-                    </div>
-                    <div className="flex flex-col items-end space-y-0.5">
-                      <p className="text-xs leading-none">200 Bags</p>
-                      <p className="text-xs leading-none">$1000.00</p>
-                    </div>
-                  </div>
-                </div>
-                <Badge>Shipped</Badge>
-              </div>
-              <hr className="border-gray-200 dark:border-gray-800" />
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center space-x-2">
-                    <img
-                      alt="Image"
-                      className="rounded-lg"
-                      height="40"
-                      src="/placeholder.svg"
-                      style={{
-                        aspectRatio: "40/40",
-                        objectFit: "cover",
-                      }}
-                      width="40"
-                    />
-                    <div>
-                      <h3 className="text-sm font-semibold">Customer Name</h3>
-                      <p className="text-xs leading-none text-gray-500">
-                        Order #125
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="flex flex-col items-end space-y-0.5">
-                      <p className="text-xs leading-none">Quantity</p>
-                      <p className="text-xs leading-none">Price</p>
-                    </div>
-                    <div className="flex flex-col items-end space-y-0.5">
-                      <p className="text-xs leading-none">150 Bags</p>
-                      <p className="text-xs leading-none">$750.00</p>
-                    </div>
-                  </div>
-                </div>
-                <Badge>Processing</Badge>
-              </div>
-            </div>
+            <p className="text-sm text-gray-600">Quantity: 500 Bags</p>
+            <p className="text-sm text-gray-600">Last Updated: 2 hours ago</p>
           </CardContent>
+          <CardFooter className="flex justify-end">
+            <Button variant="outline">View</Button>
+          </CardFooter>
         </Card>
-        <Card>
+        <Card className="bg-white shadow rounded-lg p-4">
           <CardHeader>
-            <h2 className="text-lg font-semibold">Customers</h2>
+            <CardTitle>Cement Type 2</CardTitle>
+            <CardDescription>In Stock</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="overflow-auto max-h-[400px]">
-              <table className="min-w-full w-full">
-                <thead>
-                  <tr className="border-t border-gray-200 dark:border-gray-800">
-                    <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Customer
-                    </th>
-                    <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                      Orders
-                    </th>
-                    <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">
-                      Due
-                    </th>
-                    <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase tracking-wider text-right">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="hover:bg-gray-100 dark:hover:bg-gray-800 border-t">
-                    <td className="px-4 py-3 whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <div className="text-sm font-semibold">Customer 1</div>
-                      </div>
-                    </td>
-                    <td className="px-4 py-3 text-center">3</td>
-                    <td className="px-4 py-3 text-center">$1500.00</td>
-                    <td className="px-4 py-3 text-right">
-                      <Button size="xs">View</Button>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-gray-100 dark:hover:bg-gray-800 border-t">
-                    <td className="px-4 py-3 whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <div className="text-sm font-semibold">Customer 2</div>
-                      </div>
-                    </td>
-                    <td className="px-4 py-3 text-center">2</td>
-                    <td className="px-4 py-3 text-center">$1000.00</td>
-                    <td className="px-4 py-3 text-right">
-                      <Button size="xs">View</Button>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-gray-100 dark:hover:bg-gray-800 border-t">
-                    <td className="px-4 py-3 whitespace-nowrap">
-                      <div className="flex items-center space-x-2">
-                        <div className="text-sm font-semibold">Customer 3</div>
-                      </div>
-                    </td>
-                    <td className="px-4 py-3 text-center">4</td>
-                    <td className="px-4 py-3 text-center">$2000.00</td>
-                    <td className="px-4 py-3 text-right">
-                      <Button size="xs">View</Button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <p className="text-sm text-gray-600">Quantity: 300 Bags</p>
+            <p className="text-sm text-gray-600">Last Updated: 1 hour ago</p>
           </CardContent>
+          <CardFooter className="flex justify-end">
+            <Button variant="outline">View</Button>
+          </CardFooter>
         </Card>
+        <div>
+          <div className="bg-white shadow rounded-lg p-4 mb-4">
+            <h2 className="text-lg font-semibold mb-2">Recent Orders</h2>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium">Customer Name</p>
+                  <p className="text-sm text-gray-600">Order #123</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Quantity 100 Bags</p>
+                  <p className="text-sm text-gray-600">Price $500.00</p>
+                </div>
+                <Badge variant="secondary">Delivered</Badge>
+              </div>
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium">Customer Name</p>
+                  <p className="text-sm text-gray-600">Order #124</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Quantity 200 Bags</p>
+                  <p className="text-sm text-gray-600">Price $1000.00</p>
+                </div>
+                <Badge variant="secondary">Shipped</Badge>
+              </div>
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium">Customer Name</p>
+                  <p className="text-sm text-gray-600">Order #125</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Quantity 150 Bags</p>
+                  <p className="text-sm text-gray-600">Price $750.00</p>
+                </div>
+                <Badge variant="secondary">Processing</Badge>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white shadow rounded-lg p-4">
+            <h2 className="text-lg font-semibold mb-2">Customers</h2>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>CUSTOMER</TableHead>
+                  <TableHead>ORDERS</TableHead>
+                  <TableHead>DUE</TableHead>
+                  <TableHead>ACTION</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Customer 1</TableCell>
+                  <TableCell>3</TableCell>
+                  <TableCell>$1500.00</TableCell>
+                  <TableCell>
+                    <Button variant="outline">View</Button>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Customer 2</TableCell>
+                  <TableCell>2</TableCell>
+                  <TableCell>$1000.00</TableCell>
+                  <TableCell>
+                    <Button variant="outline">View</Button>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Customer 3</TableCell>
+                  <TableCell>4</TableCell>
+                  <TableCell>$2000.00</TableCell>
+                  <TableCell>
+                    <Button variant="outline">View</Button>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </div>
       </div>
     </div>
   );
