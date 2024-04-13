@@ -5,9 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { useState } from "react";
-import firebase from "firebase/app";
-import "firebase/auth";
+
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { auth } from "@/app/firebase/config";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
+
+//
+import { useForm } from "react-hook-form";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -16,30 +21,31 @@ export default function SignUp() {
   const [lastName, setLastName] = useState(""); // Optional for user profile
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const handleSignUp = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-
-    setLoading(true); // Set loading state
-
+  const [firstNameError, setFirstNameError] = useState(null);
+  const [lastNameError, setLastNameError] = useState(null);
+  const [createUserWithEmailAndPassword] =
+    useCreateUserWithEmailAndPassword(auth);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const handleSignUp = async () => {
     try {
-      const userCredential = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
-      const user = userCredential.user;
-
-      // Update user profile with optional name fields (if applicable)
-      if (user && (firstName || lastName)) {
-        await user.updateProfile({ displayName: `${firstName} ${lastName}` });
-      }
-
-      console.log("User signed up successfully:", user);
-      setLoading(false); // Clear loading state
-      router.push("/dashboard"); // Redirect to a protected dashboard or desired page
-    } catch (error) {
-      console.error("Error signing up:", error);
-      setErrorMessage(error.message);
-      setLoading(false); // Clear loading state
+      const res = await createUserWithEmailAndPassword(email, password);
+      console.log({ res });
+      const db = getFirestore();
+      const userRef = collection(db, "users");
+      await addDoc(userRef, {
+        uid: res.user.uid,
+        firstName: firstName,
+        lastName: lastName,
+      });
+      console.log("User created and profile data stored");
+      setEmail("");
+      setPassword("");
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -76,6 +82,9 @@ export default function SignUp() {
                   <Input
                     id="first-name"
                     placeholder="Enter your first name"
+                    {...register("firstName", {
+                      required: "First name is required.",
+                    })}
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
@@ -85,6 +94,9 @@ export default function SignUp() {
                   <Input
                     id="last-name"
                     placeholder="Enter your last name"
+                    {...register("lastName", {
+                      required: "Last name is required.",
+                    })}
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                   />
@@ -110,7 +122,12 @@ export default function SignUp() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-              <Button className="w-full" type="submit" disabled={loading}>
+              <Button
+                className="w-full"
+                type="submit"
+                disabled={loading}
+                onClick={handleSignUp}
+              >
                 {loading ? "Signing Up..." : "Sign Up"}
               </Button>
             </div>
