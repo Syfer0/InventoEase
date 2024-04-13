@@ -11,8 +11,8 @@ import { auth } from "@/app/firebase/config";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 
-//
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
@@ -30,6 +30,7 @@ export default function SignUp() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const router = useRouter();
   const handleSignUp = async () => {
     try {
       const res = await createUserWithEmailAndPassword(email, password);
@@ -44,6 +45,7 @@ export default function SignUp() {
       console.log("User created and profile data stored");
       setEmail("");
       setPassword("");
+      router.push("/Dashboard");
     } catch (e) {
       console.error(e);
     }
