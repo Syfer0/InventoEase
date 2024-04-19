@@ -37,13 +37,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 #ui
 shadcn/ui
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/peB1sPyt9aa
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+/\*\*
 
-#Recipe method
-1.setting up project structure
-2.Routing to different section
-3.crate and signup and login page
+- v0 by Vercel.
+- @see https://v0.dev/t/peB1sPyt9aa
+- Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+  \*/
+  usename - example31@gmail.com
+  pass - 123456
+  #Recipe method
+  1.setting up project structure
+  2.Routing to different section
+  3.crate and signup and login page
