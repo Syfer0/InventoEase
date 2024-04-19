@@ -13,7 +13,7 @@ import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-
+import { SignUpTypes } from "@/types/types";
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +29,7 @@ export default function SignUp() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<SignUpTypes>();
   const router = useRouter();
   const handleSignUp = async () => {
     try {

@@ -1,10 +1,30 @@
+"use client";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
 
-export default function Component() {
+import React, { useState } from "react";
+export default function Login() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const handleLogin = async () => {
+    try {
+      // Sign in the user with email and password
+      await signInWithEmailAndPassword(auth, email, password);
+      // If successful, redirect to dashboard or any other page
+      router.push("/Navbar");
+    } catch (error) {
+      // Handle errors
+      setErrorMessage(error.message);
+    }
+  };
   return (
     <div className="mx-auto max-w-[400px] space-y-6">
       <header className="py-4 lg:py-6 xl:py-8" />
@@ -17,7 +37,14 @@ export default function Component() {
       <div className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" placeholder="m@example.com" required type="email" />
+          <Input
+            id="email"
+            placeholder="m@example.com"
+            required
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <div className="space-y-2">
           <div className="flex items-center">
@@ -26,9 +53,17 @@ export default function Component() {
               Forgot your password?
             </Link>
           </div>
-          <Input id="password" required type="password" />
+          <Input
+            id="password"
+            required
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
-        <Button className="w-full" type="submit">
+        {/* Error message */}
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        <Button className="w-full" type="button" onClick={handleLogin}>
           Login
         </Button>
         <Separator className="my-8" />
