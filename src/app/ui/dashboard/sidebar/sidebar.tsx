@@ -23,7 +23,10 @@ export default function Dashboardv1() {
       <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-[60px] items-center border-b px-6">
-            <Link className="flex items-center gap-2 font-semibold" href="#">
+            <Link
+              className="flex items-center gap-2 font-semibold"
+              href="/Home"
+            >
               <LuPackage2 className="h-6 w-6" />
               <span className="">Invento Ease </span>
             </Link>
@@ -36,21 +39,21 @@ export default function Dashboardv1() {
             <nav className="grid items-start px-4 text-sm font-medium">
               <Link
                 className="flex items-center gap-3 rounded-lg bg-gray-100 px-3 py-2 text-gray-900  transition-all hover:text-gray-900 dark:bg-gray-800 dark:text-gray-50 dark:hover:text-gray-50"
-                href="/Navbar/All"
+                href="#"
               >
                 <FaHome className="h-4 w-4" />
                 Home
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="/order"
+                href="#"
               >
                 <FaCartShopping className="h-4 w-4" />
                 Orders
               </Link>
               <Link
                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                href="/Navbar/All"
               >
                 <LuPackage className="h-4 w-4" />
                 Inventory
@@ -121,80 +124,6 @@ export default function Dashboardv1() {
             </DropdownMenu>
           </div>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-          <div className="grid gap-4 md:grid-cols-[1fr_300px]">
-            <div className="border shadow-sm rounded-lg p-4 grid gap-4">
-              <div className="flex items-center gap-4">
-                <h2 className="font-semibold text-lg">Due payments</h2>
-                <Button className="ml-auto" size="sm">
-                  View all
-                </Button>
-              </div>
-              <div className="grid gap-2">
-                <p className="font-medium">
-                  Invoice #1234 from Acme Construction
-                </p>
-                <p>$2,500.00</p>
-                <p>Due: 12th March 2024</p>
-              </div>
-            </div>
-            <div className="border shadow-sm rounded-lg p-4 grid gap-4">
-              <div className="flex items-center gap-4">
-                <h2 className="font-semibold text-lg">Recent orders</h2>
-                <Button className="ml-auto" size="sm">
-                  View all
-                </Button>
-              </div>
-              <div className="grid gap-2">
-                <p className="font-medium">Order #1234 for Concrete Blocks</p>
-                <p>Customer: Acme Construction</p>
-                <p>Quantity: 500</p>
-              </div>
-            </div>
-          </div>
-          <div className="border shadow-sm rounded-lg p-4">
-            <h2 className="font-semibold text-lg">Add new inventory</h2>
-            <form className="grid gap-4 md:grid-cols-[1fr_1fr]">
-              <div className="grid gap-2">
-                <Label className="text-sm" htmlFor="name">
-                  Item name
-                </Label>
-                <Input id="name" placeholder="Enter item name..." />
-              </div>
-              <div className="grid gap-2">
-                <Label className="text-sm" htmlFor="quantity">
-                  Quantity
-                </Label>
-                <Input id="quantity" placeholder="Enter quantity..." />
-              </div>
-              <div className="grid gap-2">
-                <Label className="text-sm" htmlFor="price">
-                  Price
-                </Label>
-                <Input id="price" placeholder="Enter price..." />
-              </div>
-              <div className="grid gap-2">
-                <Label className="text-sm" htmlFor="vendor">
-                  Vendor
-                </Label>
-                <Input id="vendor" placeholder="Enter vendor..." />
-              </div>
-              <div className="grid gap-2">
-                <Label className="text-sm" htmlFor="notes">
-                  Notes
-                </Label>
-                <Textarea
-                  className="min-h-[100px]"
-                  id="notes"
-                  placeholder="Enter notes..."
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <Button type="submit">Add to inventory</Button>
-              </div>
-            </form>
-          </div>
-        </main>
       </div>
     </div>
   );
