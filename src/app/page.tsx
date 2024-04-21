@@ -147,8 +147,8 @@ export default function Home() {
                 Testimonials
               </h2>
               <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Don't just take our word for it. Here's what our customers have
-                to say about the ConstructionPro Inventory Management System.
+                Dont just take our word for it. Here what our customers have to
+                say about the ConstructionPro Inventory Management System.
               </p>
             </div>
             <div className="mx-auto grid max-w-3xl items-start gap-6 sm:grid-cols-2">
@@ -156,9 +156,9 @@ export default function Home() {
                 <UserIcon className="h-12 w-12 rounded-full bg-gray-100" />
                 <div className="space-y-2 text-center">
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    "ConstructionPro has made it incredibly easy to track our
+                    ConstructionPro has made it incredibly easy to track our
                     inventory across multiple job sites. The system is intuitive
-                    and the support from the team has been outstanding."
+                    and the support from the team has been outstanding.
                   </p>
                   <p className="font-bold">Sarah Johnson</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -170,9 +170,9 @@ export default function Home() {
                 <UserIcon className="h-12 w-12 rounded-full bg-gray-100" />
                 <div className="space-y-2 text-center">
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    "As a supplier to the construction industry, managing our
+                    As a supplier to the construction industry, managing our
                     inventory and orders was a challenge. ConstructionPro has
-                    streamlined our processes and improved our efficiency."
+                    streamlined our processes and improved our efficiency.
                   </p>
                   <p className="font-bold">Michael Lee</p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">

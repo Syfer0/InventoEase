@@ -9,15 +9,14 @@ import {
   DropdownMenuContent,
   DropdownMenu,
 } from "@/components/ui/dropdown-menu";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { LuPackage2, LuPackage } from "react-icons/lu";
 import { FaBell, FaHome, FaSearch } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { HiOutlineUsers } from "react-icons/hi2";
 import { CiSettings } from "react-icons/ci";
+import Image from "next/image";
 
-export default function Dashboardv1() {
+export default function Sidebar() {
   return (
     <div key="1" className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
@@ -99,7 +98,7 @@ export default function Dashboardv1() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="rounded-full" size="icon" variant="ghost">
-                  <img
+                  <Image
                     alt="Avatar"
                     className="rounded-full"
                     height="32"

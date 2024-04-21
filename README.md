@@ -45,12 +45,14 @@ shadcn/ui
   \*/
   usename - example31@gmail.com
   pass - 123456
-  #Recipe method
-  1.setting up project structure
-  2.Routing to different section
-  3.crate and signup and login page
 
-TO do list
--[] signup and login form auth with error handing
+"next": "14.1.0",
+
+#Recipe method
+1.setting up project structure
+2.Routing to different section
+3.crate and signup and login page
+
+TO do list -[x] signup and login form auth with error handing
 -[] setting Up mongodb with dashboard requirment
 -[]build resusable componets on dashboard

@@ -136,7 +136,7 @@ export default function Component() {
                 <div className="flex items-center gap-2">
                   <Avatar className="w-10 h-10">JB</Avatar>
                   <div>
-                    <h2 className="text-lg font-bold">Joe's Builders</h2>
+                    <h2 className="text-lg font-bold">Joe Builders</h2>
                     <p className="text-sm text-gray-500">
                       Construction Company
                     </p>
@@ -175,7 +175,7 @@ export default function Component() {
                   <InboxIcon className="w-8 h-8" />
                   <div className="text-sm">
                     <h3 className="font-medium">Invoice #00123</h3>
-                    <p className="text-sm text-gray-500">Joe's Builders</p>
+                    <p className="text-sm text-gray-500">Joe Builders</p>
                   </div>
                 </div>
                 <div className="ml-auto flex items-center gap-2">
@@ -223,7 +223,7 @@ export default function Component() {
   );
 }
 
-function InboxIcon(props) {
+function InboxIcon(props: any) {
   return (
     <svg
       {...props}
@@ -243,7 +243,7 @@ function InboxIcon(props) {
   );
 }
 
-function SettingsIcon(props) {
+function SettingsIcon(props: any) {
   return (
     <svg
       {...props}
@@ -263,7 +263,7 @@ function SettingsIcon(props) {
   );
 }
 
-function ShoppingBagIcon(props) {
+function ShoppingBagIcon(props: any) {
   return (
     <svg
       {...props}
