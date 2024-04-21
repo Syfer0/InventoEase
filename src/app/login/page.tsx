@@ -20,13 +20,21 @@ export default function Login() {
       await signInWithEmailAndPassword(auth, email, password);
       // If successful, redirect to dashboard or any other page
       router.push("/Dashboard");
-    } catch (error) {
-      // Handle errors
-      setErrorMessage(error.message);
+    } catch (e: any) {
+      switch (e.code) {
+        case "auth/invalid-email":
+          setErrorMessage("Please enter a valid email address.");
+          break;
+        case "auth/invalid-credential":
+          setErrorMessage("Invalid password. Please try again.");
+          break;
+        default:
+          setErrorMessage(e.message);
+      }
     }
   };
   return (
-    <form onSubmit={handleSubmit(console.log)}>
+    <form onSubmit={handleLogin}>
       <div className="mx-auto max-w-[400px] space-y-6">
         <header className="py-4 lg:py-6 xl:py-8" />
         <div className="space-y-2 text-center">
