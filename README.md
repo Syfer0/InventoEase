@@ -49,3 +49,8 @@ shadcn/ui
   1.setting up project structure
   2.Routing to different section
   3.crate and signup and login page
+
+TO do list
+-[] signup and login form auth with error handing
+-[] setting Up mongodb with dashboard requirment
+-[]build resusable componets on dashboard

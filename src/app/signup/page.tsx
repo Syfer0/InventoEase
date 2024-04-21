@@ -58,9 +58,9 @@ export default function SignUp() {
       const auth = getAuth();
       const result = await signInWithPopup(auth, provider);
       console.log("Google sign-in result:", result);
-    } catch (error) {
-      console.log("could not sign in with google", error);
-      setErrorMessage(error.message); // Set error message
+    } catch (e: any) {
+      console.log("could not sign in with google", e);
+      setErrorMessage(e.message); // Set error message
     } finally {
       setLoading(false); // Stop loading
     }
